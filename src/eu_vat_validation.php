@@ -7,13 +7,13 @@
  *  and are accessible after valdiation via EuVatValidation::getVatIdExtended()
  * 
  * 
- *  Example (short):
+ *  Example 1:
  *  ---------------------------------
  *  $vatId = new EuVatValidation('DE273616207');
  *  print_r($vatId->isValid());
  * 
  * 
- *  Example (medium - Recommended to validate many VAT-ID's with one class instance):
+ *  Example 2 (Recommended to validate many VAT-ID's with one class instance):
  *  ---------------------------------
  *  $vatId = new EuVatValidation;
  * 
@@ -24,7 +24,7 @@
  *  print_r($vatId->isValid());
  * 
  * 
- *  Example (long):
+ *  Example 3 (long):
  *  ---------------------------------
  *  $vatId = new EuVatValidation;
  *  $vatId->setVatId('DE273616207');
@@ -44,8 +44,8 @@ class EuVatValidation {
    * Constructor
    * If $vatId isn't empty, the validation gets triggered right away
    * 
-   * @throws SoapFault
    * @param string $vatId
+   * @throws SoapFault
    */
   public function __construct($vatId = null) {
 
@@ -69,8 +69,8 @@ class EuVatValidation {
   /**
    * Set VAT-ID and extract VAT-Number and country code
    * 
-   * @throws Exception
    * @param string $vatId^
+   * @throws Exception
    */
   public function setVatId($vatId) {
 
@@ -193,8 +193,8 @@ class EuVatValidation {
    * Sead a SOAP request to validate the current VAT-ID
    * (WSDL description: http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl)
    * 
-   * @throws SoapFault
    * @return object
+   * @throws SoapFault
    */
   private function sendValidationRequest() {
 
