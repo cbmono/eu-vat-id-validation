@@ -165,7 +165,7 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
 
     $this->assertNull($details['companyName']);
     $this->assertNull($details['companyAddress']);
-    $this->assertFalse($this->vatId->getVatIdExtended()['isValid']);
+    $this->assertFalse($details['isValid']);
   }
 
 
