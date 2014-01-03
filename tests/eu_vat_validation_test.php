@@ -149,12 +149,22 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
     $this->mockSoapClient();
     $this->vatId->setVatId($this->right_vatNumber);
     $this->vatId->validate();
-    $this->assertTrue($this->vatId->getVatIdExtended()['isValid']);
+    $details = $this->vatId->getVatIdExtended();
+
+    $this->assertEquals('273616207', $details['vatNumber']);
+    $this->assertEquals('DE', $details['countryCode']);
+    $this->assertEquals('Ondango', $details['companyName']);
+    $this->assertEquals('1600 Amphitheatre Pkwy, Mountain View, CA', $details['companyAddress']);
+    $this->assertTrue($details['isValid']);
 
     // Fail
     $this->mockSoapClient(false);
     $this->vatId->setVatId($this->wrong_vatNumber);
     $this->vatId->validate();
+    $details = $this->vatId->getVatIdExtended();
+
+    $this->assertNull($details['companyName']);
+    $this->assertNull($details['companyAddress']);
     $this->assertFalse($this->vatId->getVatIdExtended()['isValid']);
   }
 
