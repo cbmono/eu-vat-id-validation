@@ -1,10 +1,10 @@
-# European VAT number validation ([VIES]) v.0.2
+# European VAT number validation ([VIES])
 > [VIES API documentation]
 
 
 ## Getting Started
 
-To start validating VAT-ID's you only need to include in your code: `src/eu_vat_validation.php`. All other files are only needed for PHPUnit and unit tests.
+To start validating VAT-ID's you only need to include in your code: `src/eu_vat_validation.php`. All other files are only needed for [PHPUnit] and [unit tests].
 
 ---
 
@@ -135,7 +135,8 @@ Array (
 [VIES]:http://ec.europa.eu/taxation_customs/vies/vatRequest.html
 [VIES API]:http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl
 [VIES API documentation]:http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl
-
+[PHPUnit]:https://github.com/sebastianbergmann/phpunit
+[unit tests]:https://github.com/cbmono/eu-vat-id-validation/blob/master/tests/eu_vat_validation_test.php
 
 
 
