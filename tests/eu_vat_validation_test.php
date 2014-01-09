@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 require_once dirname(__FILE__) . '/../src/eu_vat_validation.php';
-require_once dirname(__FILE__) . '/mocks/vies_soap_client.php';
+require_once dirname(__FILE__) . '/mocks_and_stubs.php';
 
 
 
@@ -18,7 +18,7 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
 
   protected function setUp() {
 
-    $this->vatId = new EuVatValidation();
+    $this->vatId = new EuVatValidationWrapper();
     $this->mockSoapClient();
   }
 
@@ -38,17 +38,17 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
 
     // Use this code for better test coverage
     //
+    // $results = 'soapClientResults' . ($success ? 'Success' : 'Fail');
+    //
     // $this->vatId->soapClient = $this->getMockFromWsdl(
     //   'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl', 
     //   'checkVatService'
     // );
-
-    // $results = 'soapClientResults' . ($success ? 'Success' : 'Fail');
     // $this->vatId->soapClient->expects($this->any())
     //                         ->method('checkVat')
     //                         ->will($this->returnValue($this->$results()));
 
-    // Travis CI doesn't support accessing external services on run time
+    // It seems like Travis CI doesn't support accessing external services on run time
     $results = 'soapClientResults' . ($success ? 'Success' : 'Fail');
 
     $this->vatId->soapClient = $this->getMock('ViesSoapClient');
@@ -108,7 +108,7 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
    */
   public function testClassExistance() {
 
-    $this->assertInstanceOf('EuVatValidation', new EuVatValidation);
+    $this->assertInstanceOf('EuVatValidation', $this->vatId);
   }
 
 
@@ -117,7 +117,7 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
    */
   public function testConstructorWithArg() {
 
-    $vatId = new EuVatValidation($this->right_vatNumber);
+    $vatId = new EuVatValidationWrapper($this->right_vatNumber);
     $this->assertEquals($this->right_vatNumber, $vatId->getVatId());
   }
 
