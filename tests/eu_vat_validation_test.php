@@ -3,6 +3,7 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 require_once dirname(__FILE__) . '/../src/eu_vat_validation.php';
 
 
+
 /**
  *  Run tests: 
  *  php vendor/phpunit/phpunit/phpunit.php --colors tests/eu_vat_validation_test.php
