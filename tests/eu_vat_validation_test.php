@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 require_once dirname(__FILE__) . '/../src/eu_vat_validation.php';
+require_once dirname(__FILE__) . '/mocks/vies_soap_client.php';
 
 
 
@@ -35,12 +36,22 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
    */
   private function mockSoapClient($success = true) {
 
-    $this->vatId->soapClient = $this->getMockFromWsdl(
-      'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl', 
-      'checkVatService'
-    );
+    // Use this code for better test coverage
+    //
+    // $this->vatId->soapClient = $this->getMockFromWsdl(
+    //   'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl', 
+    //   'checkVatService'
+    // );
 
+    // $results = 'soapClientResults' . ($success ? 'Success' : 'Fail');
+    // $this->vatId->soapClient->expects($this->any())
+    //                         ->method('checkVat')
+    //                         ->will($this->returnValue($this->$results()));
+
+    // Travis CI doesn't support accessing external services on run time
     $results = 'soapClientResults' . ($success ? 'Success' : 'Fail');
+
+    $this->vatId->soapClient = $this->getMock('ViesSoapClient');
     $this->vatId->soapClient->expects($this->any())
                             ->method('checkVat')
                             ->will($this->returnValue($this->$results()));
