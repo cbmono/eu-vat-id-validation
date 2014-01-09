@@ -113,16 +113,6 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
 
 
   /**
-   * @covers EuVatValidation::__construct
-   */
-  public function testConstructorWithArg() {
-
-    $vatId = new EuVatValidationWrapper($this->right_vatNumber);
-    $this->assertEquals($this->right_vatNumber, $vatId->getVatId());
-  }
-
-
-  /**
    * @covers EuVatValidation::setVatId
    * @covers EuVatValidation::getVatId
    * @covers EuVatValidation::getVatIdExtended
