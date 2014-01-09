@@ -1,0 +1,7 @@
+# see http://about.travis-ci.org/docs/user/languages/php/ 
+language: php
+php:
+  - 5.4
+
+# phpunit
+script: php vendor/phpunit/phpunit/phpunit.php --colors tests/eu_vat_validation_test.php
