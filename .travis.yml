@@ -3,9 +3,9 @@ language: php
 php:
   - 5.4
 
-env:
-  - TESTS_FOLDER=tests
-  - PHPUNIT_FOLDER=vendor/phpunit/phpunit
+# env:
+#  - TESTS_FOLDER=tests
+#  - PHPUNIT_FOLDER=vendor/phpunit/phpunit
 
 # phpunit
-script: "php $PHPUNIT_FOLDER/phpunit.php --colors $TESTS_FOLDER/eu_vat_validation_test.php"
+script: "php vendor/phpunit/phpunit/phpunit.php --colors tests/eu_vat_validation_test.php"
