@@ -1,11 +1,9 @@
-# European VAT number validation ([VIES])
-> [![Build Status](https://travis-ci.org/cbmono/eu-vat-id-validation.png?branch=master)](https://travis-ci.org/cbmono/eu-vat-id-validation)
-> [VIES API documentation]
-
+# European VAT number validation ([VIES]) in PHP [![Build Status](https://travis-ci.org/cbmono/eu-vat-id-validation.png?branch=master)](https://travis-ci.org/cbmono/eu-vat-id-validation)
+> [VIES API documentation][VIES API]
 
 ## Getting Started
 
-To start validating VAT-ID's you only need to include in your code: `src/eu_vat_validation.php`. All other files are only needed for [PHPUnit] and [unit tests].
+To start validating VAT-ID's you only need to include `src/eu_vat_validation.php` in your code. All other files and folders are only needed for [PHPUnit] and [unit tests].
 
 ---
 
@@ -58,7 +56,7 @@ Array (
 ---
 #### validate()
 
-Sends a request to the [VIES API] and validates the last set VAT-ID value.
+Sends a request to the [VIES API][VIES API] and validates the last set VAT-ID value.
 
 ---
 #### isValid()
@@ -132,10 +130,8 @@ Array (
 ```
 ---
 
-
 [VIES]:http://ec.europa.eu/taxation_customs/vies/vatRequest.html
 [VIES API]:http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl
-[VIES API documentation]:http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl
 [PHPUnit]:https://github.com/sebastianbergmann/phpunit
 [unit tests]:https://github.com/cbmono/eu-vat-id-validation/blob/master/tests/eu_vat_validation_test.php
 
