@@ -1,4 +1,5 @@
 # European VAT number validation ([VIES])
+> [![Build Status](https://travis-ci.org/cbmono/eu-vat-id-validation.png?branch=master)](https://travis-ci.org/cbmono/eu-vat-id-validation)
 > [VIES API documentation]
 
 
