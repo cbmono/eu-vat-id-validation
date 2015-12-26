@@ -50,9 +50,9 @@ class EuVatValidation {
   public function __construct($vatId = null) {
 
     try {
-      $this->soapClient = new SoapClient($this->wsdlUrl);  
+      $this->soapClient = new \SoapClient($this->wsdlUrl);
     }
-    catch(SoapFault $e) {
+    catch(\SoapFault $e) {
       exit('Error establishing SOAP connection: ' . $e->faultstring);
     }    
 
@@ -77,7 +77,7 @@ class EuVatValidation {
     $vatId = $this->clean($vatId);
 
     if (empty($vatId)) {
-      throw new Exception('VAT-ID cannot be empty');
+      throw new \Exception('VAT-ID cannot be empty');
     }
 
     $this->resetVatId();
@@ -206,7 +206,7 @@ class EuVatValidation {
 
       return $response;
     }
-    catch(SoapFault $e) {
+    catch(\SoapFault $e) {
       echo 'Error fetching SOAP results: ' . $e->faultstring;
     }
   }
